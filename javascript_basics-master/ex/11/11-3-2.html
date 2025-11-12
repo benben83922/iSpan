@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="txt" value="">
+    <button onclick="stopCount()" id="btn_stop">結束累加</button>
+
+    <script>
+    //累加數字的變數
+    let count = 0;
+
+    //作為 clearInterval() 用的變數
+    let instanceId;
+    
+    //逐秒累加
+    instanceId = setInterval(function(){
+        //將當前的 count 值，放到 id=txt 的元素 value 屬性當中
+        document.querySelector("input#txt").value = count;
+
+        //進行數字的累加
+        count = count + 1;
+    }, 1000);
+
+    //結束累加
+    function stopCount() {
+        //結束 setInterval
+        clearInterval(instanceId);
+    }
+    </script>    
+</body>
+</html>

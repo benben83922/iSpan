@@ -1,0 +1,24 @@
+.list1{
+    list-style-type: none;
+    list-style-image: url(../image/arrow2.png);
+    border: 2px dotted black;
+    /* border-radius: 5px 10px 15px 20px; */
+    /* border-top-left-radius: 10px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 40px; */
+    border-radius: 20px 0 20px 0;
+}
+.list2{
+    list-style-image: none;
+    list-style-type: upper-alpha;
+    list-style-position: outside;
+}
+.in{
+    background-color: red;
+    list-style-position: inside;
+}
+.out{
+    background-color: blue;
+    list-style-position: outside; /*預設就是outside*/
+}

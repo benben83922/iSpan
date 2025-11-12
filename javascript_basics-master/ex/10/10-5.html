@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+    //亂數，介於 0 ~ 1 (不足1，例如 0.999999999....)
+    console.log( Math.random() );
+    console.log( Math.random() );
+    console.log( Math.random() );
+    console.log( Math.random() );
+
+    //隨機選擇餐廳
+    let arrMeal = ['麥當勞', '肯德基', '摩斯漢堡', '頂呱呱', '漢堡王'];
+
+    //將「亂數 * 陣列長度」的結果，無條件捨去後取整數，作為隨機取得的索引值
+    let idxRandom = Math.floor( Math.random() * arrMeal.length );
+    
+    document.write(`我可以選擇的餐廳有: <br />`);
+
+    //列出所有餐廳
+    for(let i = 0; i < arrMeal.length; i++){
+        document.write('● ' + arrMeal[i] + '<br />');
+    }
+
+    //將隨機產生的索引值，放到餐廳陣列當中，取得對應的餐廳名稱
+    document.write(`今天中餐，我選擇 ${arrMeal[idxRandom]}`);
+    </script>    
+</head>
+<body>
+    
+</body>
+</html>

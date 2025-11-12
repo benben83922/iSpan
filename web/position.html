@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Position</title>
+    <style>
+        .static {
+            border: 3px solid red;
+            padding: 5px;
+            background-color: #FFECEC;
+            position: static;
+        }
+
+        .relative1 {
+            border: 3px solid blue;
+            padding: 5px;
+            background-color: #D2E9FF;
+            position: relative;
+            width: 600px;
+        }
+
+        .relative2 {
+            position: relative;
+            /* 請加上top or right or left or bottom調整邊界距離 */
+            left: 670px;
+            /*相對位置是跟他自己原本的距離比較*/
+            top: 50px;
+            /* right: 50px; */
+        }
+
+        .fixed {
+            width: 200px;
+            border: 3px solid green;
+            background-color: #E8FFF5;
+            padding: 5px;
+            /* 請設定position:fixed */
+            position: fixed;
+            /* 請加上top or right or left or bottom調整邊界距離 */
+            /*固定位置的邊界是body的邊界*/
+            right: 0;
+            bottom: 50px;
+
+        }
+
+        .div_static {
+            width: 600px;
+            height: 400px;
+            padding: 5px;
+            border: 3px solid purple;
+            background-color: #EBD3E8;
+            /* 請設定position:static */
+            position: static;
+        }
+
+        .absolute_sta {
+            width: 100px;
+            height: 100px;
+            padding: 5px;
+            border: 3px solid orange;
+            background-color: #FFE4CA;
+            position: absolute;
+            /* 請加上top or right or left or bottom來調整邊界距離 */
+            right: 50px;
+            /*因父元素是靜態，所以right會跳過父元素以body為標準*/
+        }
+
+        .div_relative {
+            width: 600px;
+            height: 400px;
+            padding: 5px;
+            border: 3px solid purple;
+            background-color: #EBD3E8;
+            /* 請設定position:relative */
+            position: relative;
+        }
+
+
+
+        .absolute_rel {
+            width: 100px;
+            height: 100px;
+            padding: 5px;
+            border: 3px solid orange;
+            background-color: #FFE4CA;
+            position: absolute;
+            /* 請加上top or right or left or bottom來調整邊界距離 */
+            right: 50px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="static">static(預設)</div>
+
+    <div class="relative1">relative1</div>
+    <div class="relative1 relative2">relative2<br>加上top or right or bottom or left後,與原來的位置做比較，可以參考對照relative1的位置</div>
+
+    <div class="fixed">fixed</div>
+
+    <div class="div_static">父元素是static
+        <div class="absolute_sta">absolute</div>
+    </div>
+
+    <div class="div_relative">父元素是relative
+        <div class="absolute_rel">absolute</div>
+    </div>
+
+</body>
+
+</html>

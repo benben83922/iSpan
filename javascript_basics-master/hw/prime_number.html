@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Number
+    </title>
+</head>
+
+<body>
+    <div class="st1">
+        <label for="account1" class="t1">請輸入數字：</label>
+        <input type="text" name="num" id="num" size="10">
+    </div>
+    <div class="sub">
+        <input id="submit" type="submit" value="送出">
+        <input type="reset" value="清除">
+    </div>
+    <div>
+        <p></p>
+    </div>
+
+    <script>
+        function isPrime(num) {
+            if (num < 2) return false; // 0 和 1 不是質數
+            for (let i = 2; i <= Math.sqrt(num); i++) { // 只需檢查到平方根
+                if (num % i === 0) return false; // 能被整除就不是質數
+            }
+            return true;
+        }
+
+        const primes = [];
+        for (let n = 2; n <= 100; n++) {
+            if (isPrime(n)) {
+                primes.push(n);
+            }
+        }
+    </script>
+</body>
+
+</html>

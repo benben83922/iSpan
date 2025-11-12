@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+    let date = new Date();
+
+    let year, month, day, hour, minute, second;
+
+    //西元年
+    year = date.getFullYear();
+
+    // 月 (記得加 1)
+    month = date.getMonth() + 1;
+    if( month < 10 ) {
+        month = '0' + month;
+    }
+
+    // 日
+    day = date.getDate();
+    if( day < 10 ) {
+        day = '0' + day;
+    }
+
+    // 時
+    hour = date.getHours();
+    if( hour < 10) {
+        hour = '0' + hour;
+    }
+
+    // 分，例如 58 分
+    minute = date.getMinutes();
+    if( minute < 10) { 
+        minute = '0' + minute;
+    }
+
+    // 秒，例如 53 秒
+    second = date.getSeconds();
+    if( second < 10) {
+        second = '0' + second;
+    }
+
+    console.log(`${year}-${month}-${day} ${hour}:${minute}:${second}`);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

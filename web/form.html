@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+        fieldset{
+            width: 500px;
+            border: 1px solid #acd6ff;
+            border-radius: 15px;
+            margin: 15px;
+        }
+        legend{
+            color: #0080FF;
+            /* text-align: center; */
+            /* border: 1px solid blue; */
+            margin-left: 50px;
+        }
+        .st1{
+            width: 450px;
+            border-bottom: 3px dashed #9D9D9D;
+            margin: 20px;
+            padding-bottom: 10px;
+        }
+        .sub{
+            width: 450px;
+            margin: 20px;
+            text-align: center;
+        }
+        .t1{
+            width: 100px;
+            /* border: 1px solid red; */
+            float: left;
+            text-align: right;
+        }
+        em{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <form action="#" method="get" enctype="multipart/form-data">
+        <fieldset>
+            <legend>個人資料一<em>(必填)</em></legend>
+            <div class="st1">
+                <label for="account1" class="t1">姓名：</label>
+                <input type="text" name="account" id="account1" placeholder="guest" size="10" autofocus autocomplete="off">
+            </div>
+            <div class="st1">
+                <label for="" class="t1">性別：</label>
+                <label>
+                    <input type="radio" name="gender" value="male" id="" required>男
+                </label>
+                <label >
+                    <input type="radio" name="gender" value="female" id="" checked>女
+                </label>
+            </div>
+             <div class="st1">
+                <label for="pwd1" class="t1">密碼：</label>
+                <input type="password" name="pwd" id="pwd1" maxlength="6" required>
+            </div>
+            <div class="st1">
+                <label for="" class="t1">生日：</label>
+                <input type="date" name="birth" value="2000-01-01">
+            </div>
+            <div class="st1">
+                <label for="" class="t1">E-mail：</label>
+                <input type="email" name="mail1" id="">
+            </div>
+            <div class="st1">
+                <label for="" class="t1">身分證字號：</label>
+                <input type="text" name="idcode" max="10" pattern="[a-zA-Z]{1}[1-2]{1}\d{8}">
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>地址</legend>
+            <div class="st1">
+                <label for="" class="t1">縣市：</label>
+                <select name="add1" id="" multiple size="8">
+                    <option value="TPE">台北市</option>
+                    <option value="NTPC" selected>新北市</option>
+                    <option value="TYU">桃園市</option>
+                    <option value="HSC">新竹市</option>
+                    <option value="TPE">台北市</option>
+                    <option value="NTPC">新北市</option>
+                    <option value="TYU">桃園市</option>
+                    <option value="HSC">新竹市</option>
+                </select>
+            </div>
+            <div class="st1">
+                <label for="" class="t1">完整地址：</label>
+                <input type="text" name="add2" size="30" id="">
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>個人資料二<em>必填</em></legend>
+            <div class="st1">
+                <label for="" class="t1">照片：</label>
+                <input type="file" name="file1" id="" accept=".jpg,.png,.webp" multiple>
+            </div>
+            <div class="st1">
+                <label for="" class="t1">喜歡的水果：</label>
+                <input type="text" name="fruit" list="fruit_list">
+                <datalist id="fruit_list">
+                    <option value="Apple">蘋果</option>
+                    <option value="Grape">葡萄</option>
+                    <option value="Banana">香蕉</option>
+                </datalist>
+            </div>
+            <div class="st1">
+                <label for="" class="t1">興趣：</label>
+                <label>
+                    <input type="checkbox" name="hobby" value="movie" id="">電影
+                </label>
+                <label>
+                    <input type="checkbox" name="hobby" value="music" id="">音樂
+                </label>
+                <label>
+                    <input type="checkbox" name="hobby" value="sport" id="">運動
+                </label>
+                <label>
+                    <input type="checkbox" name="hobby" value="travel" id="">旅遊
+                </label>
+            </div>
+            <div class="st1">
+                <label for="comment1" class="t1">意見：</label>
+                <textarea name="comment" id="comment1" cols="40" rows="5"></textarea>
+            </div>
+        </fieldset>
+            <div class="sub">
+                <input type="submit" value="送出">
+                <input type="reset" value="清除">
+            </div>
+        
+    </form>
+</body>
+</html>

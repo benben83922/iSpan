@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多欄版面</title>
+    <style>
+        body {
+            /* background-image: url(images/p2.webp); */
+            background-repeat: no-repeat;
+            background-size: 100% auto;
+            /* fixed只適合body,textarea元素 */
+            background-attachment: fixed;
+            background-position: center center;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box1 {
+            width: 1000px;
+            margin: 20px auto;
+            border: 3px solid gray;
+            border-radius: 15px;
+            padding: 20px;
+            line-height: 1.7;
+            text-align: justify;
+            column-count: 3;
+            column-gap: 2em;
+            column-rule: 5px dashed gray;
+            background-image: url(images/arrow1.webp);
+            background-size: 50px 50px;
+            background-repeat: repeat-x;
+            background-position: bottom right;
+        }
+
+        .box2 {
+            width: 1000px;
+            margin: 20px auto;
+            border: 3px solid orange;
+            border-radius: 15px;
+            padding: 20px;
+            line-height: 1.7;
+            text-align: justify;
+            column-width: 300px;
+            column-gap: 2em;
+            column-rule: 5px dotted orange;
+            background-image: url(images/arrow1.webp), url(images/arrow1.webp);
+            background-size: 50px 50px;
+            background-repeat: no-repeat, no-repeat;
+            background-position: right, 500px 250px;
+        }
+
+        .box2 p {
+            margin-bottom: 20px;
+        }
+
+        .d1 {
+            width: 200px;
+            height: 120px;
+            border: 2px dotted red;
+            background-image: url(images/bird150.jpg);
+            background-size: cover;
+            background-position: center center;
+        }
+
+        .d2 {
+            width: 200px;
+            height: 120px;
+            border: 2px dotted red;
+            background-image: url(images/bird150.jpg);
+            background-size: contain;
+            /* background-repeat: no-repeat;
+            background-position: center center; */
+        }
+    </style>
+</head>
+
+<body>
+    <p class="box1">
+        美國職棒大聯盟（MLB）今（2025）年賽季已進入尾聲，衛冕軍洛杉磯道奇隊今（28）回到主場，與多倫多藍鳥繼續進行世界大賽第3戰；前兩戰，雙方1比1平手，誰能先拿下第4勝，就能成為今年冠軍。雖然從寒冷的加拿大，回到溫暖的洛杉磯，但道奇本場比賽卻陷入苦戰；7局上半，藍鳥強打小葛雷諾（Vladimir
+        Guerrero Jr.）打回超前分，以5比4領先。想不到，大谷翔平下個半局就還以顏色，馬上敲出追平全壘打。
+
+        今年季後賽前12戰狂敲6轟、長打率高達6成33的大谷翔平，本戰狀態超級火燙；首打席面對藍鳥先發薛澤（Max
+        Scherzer）敲出二壘安打之後，又於第3局重砲出擊，直接轟出一發陽春砲。從畫面上來看，這球進壘位置不差，95英哩的四縫線速球，位置已經超出好球帶範圍、且位置夠高，想不到天生神力的大谷，依然輕輕鬆鬆縮著手臂，直接用蠻力敲出大牆外。
+
+        下一個打席，大谷翔平對戰新任左投弗拉赫提（Mason
+        Fluharty），再敲出二壘安打，讓道奇追回1分，將比數發近到2比4。想不到，「大谷秀」還沒結束，第7局下半在4比5、落後1分的狀態下，面對藍鳥王牌後援多明葛茲（Seranthony
+        Domínguez），一登場面對第一顆98英里直球，就直接大棒一揮、猛力敲出中左外野全壘打牆，讓道奇瞬間追平比分，5比5平手。
+
+        這發全壘打已經是大谷今年季後賽的第8轟，前面12場比賽，他已拿出6成33長打率的恐怖成績；若與例行賽55轟加總，本季他總共已敲出63發全壘打。同時，這也是他世界大賽的第3轟、最近4場季後賽總共敲了6發，狀態相當火燙。
+
+        美國職棒大聯盟（MLB）今（2025）年賽季已進入尾聲，衛冕軍洛杉磯道奇隊今（28）回到主場，與多倫多藍鳥繼續進行世界大賽第3戰；前兩戰，雙方1比1平手，誰能先拿下第4勝，就能成為今年冠軍。雖然從寒冷的加拿大，回到溫暖的洛杉磯，但道奇本場比賽卻陷入苦戰；7局上半，藍鳥強打小葛雷諾（Vladimir
+        Guerrero Jr.）打回超前分，以5比4領先。想不到，大谷翔平下個半局就還以顏色，馬上敲出追平全壘打。
+
+        今年季後賽前12戰狂敲6轟、長打率高達6成33的大谷翔平，本戰狀態超級火燙；首打席面對藍鳥先發薛澤（Max
+        Scherzer）敲出二壘安打之後，又於第3局重砲出擊，直接轟出一發陽春砲。從畫面上來看，這球進壘位置不差，95英哩的四縫線速球，位置已經超出好球帶範圍、且位置夠高，想不到天生神力的大谷，依然輕輕鬆鬆縮著手臂，直接用蠻力敲出大牆外。
+
+        下一個打席，大谷翔平對戰新任左投弗拉赫提（Mason
+        Fluharty），再敲出二壘安打，讓道奇追回1分，將比數發近到2比4。想不到，「大谷秀」還沒結束，第7局下半在4比5、落後1分的狀態下，面對藍鳥王牌後援多明葛茲（Seranthony
+        Domínguez），一登場面對第一顆98英里直球，就直接大棒一揮、猛力敲出中左外野全壘打牆，讓道奇瞬間追平比分，5比5平手。
+
+        這發全壘打已經是大谷今年季後賽的第8轟，前面12場比賽，他已拿出6成33長打率的恐怖成績；若與例行賽55轟加總，本季他總共已敲出63發全壘打。同時，這也是他世界大賽的第3轟、最近4場季後賽總共敲了6發，狀態相當火燙。
+    </p>
+    <div class="box2">
+        <p>
+            美國職棒大聯盟（MLB）今（2025）年賽季已進入尾聲，衛冕軍洛杉磯道奇隊今（28）回到主場，與多倫多藍鳥繼續進行世界大賽第3戰；前兩戰，雙方1比1平手，誰能先拿下第4勝，就能成為今年冠軍。雖然從寒冷的加拿大，回到溫暖的洛杉磯，但道奇本場比賽卻陷入苦戰；7局上半，藍鳥強打小葛雷諾（Vladimir
+            Guerrero Jr.）打回超前分，以5比4領先。想不到，大谷翔平下個半局就還以顏色，馬上敲出追平全壘打。
+        </p>
+        <p>
+            今年季後賽前12戰狂敲6轟、長打率高達6成33的大谷翔平，本戰狀態超級火燙；首打席面對藍鳥先發薛澤（Max
+            Scherzer）敲出二壘安打之後，又於第3局重砲出擊，直接轟出一發陽春砲。從畫面上來看，這球進壘位置不差，95英哩的四縫線速球，位置已經超出好球帶範圍、且位置夠高，想不到天生神力的大谷，依然輕輕鬆鬆縮著手臂，直接用蠻力敲出大牆外。
+        </p>
+        <p>
+            下一個打席，大谷翔平對戰新任左投弗拉赫提（Mason
+            Fluharty），再敲出二壘安打，讓道奇追回1分，將比數發近到2比4。想不到，「大谷秀」還沒結束，第7局下半在4比5、落後1分的狀態下，面對藍鳥王牌後援多明葛茲（Seranthony
+            Domínguez），一登場面對第一顆98英里直球，就直接大棒一揮、猛力敲出中左外野全壘打牆，讓道奇瞬間追平比分，5比5平手。
+        </p>
+        <p>
+            這發全壘打已經是大谷今年季後賽的第8轟，前面12場比賽，他已拿出6成33長打率的恐怖成績；若與例行賽55轟加總，本季他總共已敲出63發全壘打。同時，這也是他世界大賽的第3轟、最近4場季後賽總共敲了6發，狀態相當火燙。
+        </p>
+        <p>
+            美國職棒大聯盟（MLB）今（2025）年賽季已進入尾聲，衛冕軍洛杉磯道奇隊今（28）回到主場，與多倫多藍鳥繼續進行世界大賽第3戰；前兩戰，雙方1比1平手，誰能先拿下第4勝，就能成為今年冠軍。雖然從寒冷的加拿大，回到溫暖的洛杉磯，但道奇本場比賽卻陷入苦戰；7局上半，藍鳥強打小葛雷諾（Vladimir
+            Guerrero Jr.）打回超前分，以5比4領先。想不到，大谷翔平下個半局就還以顏色，馬上敲出追平全壘打。
+        </p>
+        <p>
+            今年季後賽前12戰狂敲6轟、長打率高達6成33的大谷翔平，本戰狀態超級火燙；首打席面對藍鳥先發薛澤（Max
+            Scherzer）敲出二壘安打之後，又於第3局重砲出擊，直接轟出一發陽春砲。從畫面上來看，這球進壘位置不差，95英哩的四縫線速球，位置已經超出好球帶範圍、且位置夠高，想不到天生神力的大谷，依然輕輕鬆鬆縮著手臂，直接用蠻力敲出大牆外。
+        </p>
+        <p>
+            下一個打席，大谷翔平對戰新任左投弗拉赫提（Mason
+            Fluharty），再敲出二壘安打，讓道奇追回1分，將比數發近到2比4。想不到，「大谷秀」還沒結束，第7局下半在4比5、落後1分的狀態下，面對藍鳥王牌後援多明葛茲（Seranthony
+            Domínguez），一登場面對第一顆98英里直球，就直接大棒一揮、猛力敲出中左外野全壘打牆，讓道奇瞬間追平比分，5比5平手。
+        </p>
+        <p>
+            這發全壘打已經是大谷今年季後賽的第8轟，前面12場比賽，他已拿出6成33長打率的恐怖成績；若與例行賽55轟加總，本季他總共已敲出63發全壘打。同時，這也是他世界大賽的第3轟、最近4場季後賽總共敲了6發，狀態相當火燙。
+        </p>
+    </div>
+    <div class="d1">
+
+    </div>
+    <div class="d2">
+
+    </div>
+</body>
+
+</html>

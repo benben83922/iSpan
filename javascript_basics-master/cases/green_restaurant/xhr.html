@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table, thead, th, tbody, tr, td {
+            border: 1px solid;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn_request">取得綠色餐廳列表</button>
+    <table>
+        <thead>
+            <tr>
+                <th>序號</th>
+                <th>餐廳名稱</th>
+                <th>餐廳地址</th>
+                <th>餐廳電話</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script>
+    document.querySelector('button#btn_request').addEventListener('click', function(event){
+        // 建立 XMLHttpRequest 物件
+        var xhr = new XMLHttpRequest();
+
+        // 對後端 Web API 發出 GET 請求
+        xhr.open('get','http://127.0.0.1:5000/green_restaurants');
+
+        // 發送請求
+        xhr.send();
+
+        // 連線開始的事件處理
+        xhr.onloadstart = function(){ 
+            console.log('連線開始'); 
+        }
+
+        // 連線過程中的事件處理
+        xhr.onload = function(){
+            console.log('連線中')
+
+            // 解析 JSON 字串
+            let obj = JSON.parse(this.responseText);
+
+            // 取得 tbody 元素
+            let tbody = document.querySelector('table > tbody');
+
+            // 清空 tbody 內容
+            tbody.innerHTML = '';
+
+            // 判斷是否有資料
+            if (obj['result']['count'] > 0){
+                // 有資料，就逐筆加入到表格中
+                for(let o of obj['result']['results']){
+                    // 建立 tr 元素
+                    let tr = document.createElement("tr");
+
+                    // 加入 td 元素 (這裡使用偷吃步的方法: innerHTML)
+                    tr.innerHTML = `<td>${o['序號']}</td>
+                                    <td>${o['餐廳名稱']}</td>
+                                    <td>${o['餐廳地址']}</td>
+                                    <td>${o['餐廳電話']}</td>`;
+
+                    // 加入到 tbody 中
+                    tbody.appendChild(tr);
+                }
+            }
+        }
+
+        // 連線結束後的事件處理
+        xhr.onloadend = function(){ 
+            console.log('連線結束'); 
+        }
+    });
+    </script>
+</body>
+</html>
