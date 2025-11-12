@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>簡單輸入顯示系統</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+
+        .input-section {
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #666;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: border-color 0.2s;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #4a5568;
+        }
+
+        .display-boxes {
+            display: grid;
+            /* grid-template-columns: 1fr 1fr; */
+            gap: 20px;
+        }
+
+        .display-box {
+            background: #f9fafb;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .display-box h2 {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 12px;
+        }
+
+        .display-content {
+            min-height: 100px;
+            padding: 16px;
+            background: white;
+            border-radius: 6px;
+            color: #333;
+            word-wrap: break-word;
+        }
+
+        .placeholder {
+            color: #999;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            text-align: center;
+            /* text-align: left; */
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        th {
+            background-color: #f9fafb;
+            font-weight: 600;
+            color: #4a5568;
+        }
+
+        td {
+            color: #333;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        button {
+            flex: 1;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .submit-btn {
+            background-color: #4a5568;
+            color: white;
+        }
+
+        .submit-btn:hover {
+            background-color: #2d3748;
+        }
+
+        .clear-btn {
+            background-color: #e5e7eb;
+            color: #4a5568;
+        }
+
+        .clear-btn:hover {
+            background-color: #d1d5db;
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        @media (max-width: 768px) {
+            .display-boxes {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>質數產生器</h1>
+
+        <div class="input-section">
+            <label for="textInput_min">輸入框</label>
+            <input type="text" id="textInput_min" placeholder="請輸入數字...">
+            <label for="textInput_max">輸入框</label>
+            <input type="text" id="textInput_max" placeholder="請輸入數字...">
+            <div class="button-group">
+                <button class="submit-btn" onclick="handleSubmit()">送出</button>
+                <button class="clear-btn" onclick="handleClear()">清除</button>
+            </div>
+        </div>
+
+        <div class="display-boxes">
+            <div class="display-box">
+                <h2>質數</h2>
+                <div class="display-content" id="display1">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>內容</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody1">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- <div class="display-box">
+                <h2>非質數</h2>
+                <div class="display-content" id="display2">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>內容</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody2">
+                        </tbody>
+                    </table>
+                </div>
+            </div> -->
+        </div>
+    </div>
+
+    <script>
+        function isPrime(num) {
+            const primes = [];
+            if (num < 2) return false; // 0 和 1 不是質數
+            for (let i = 2; i <= Math.sqrt(num); i++) { // 只需檢查到平方根
+                if (num % i === 0) return false; // 能被整除就不是質數
+            }
+            return true;
+        }
+
+        function handleSubmit() {
+            const input_min = document.getElementById('textInput_min');
+            const input_max = document.getElementById('textInput_max');
+            const displayBox1 = document.querySelector('.display-boxes .display-box:nth-child(1)');
+            // const displayBox2 = document.querySelector('.display-boxes .display-box:nth-child(2)');
+            const tableBody1 = document.getElementById('tableBody1');
+            // const tableBody2 = document.getElementById('tableBody2');
+
+            tableBody1.replaceChildren();
+
+            const num_min = input_min.value;
+            const num_max = input_max.value;
+
+            if (num_min !== "" && num_max !== "" && !isNaN(num_min) && !isNaN(num_max)) {
+                const min = Number(num_min)
+                const max = Number(num_max)
+                const primes = [];
+                const else_num = []
+                for (let n = min; n <= max; n++) {
+                    if (isPrime(n)) {
+                        primes.push(n);
+                    }
+                    else {
+                        else_num.push(n);
+                    }
+                }
+                displayBox1.style.display = 'block';
+                // displayBox2.style.display = 'block';
+
+                for (let o of primes) {
+                    let tr = document.createElement("tr");
+                    tr.innerHTML = `<td>${o}</td>`;
+                    tableBody1.appendChild(tr);
+                }
+                // for (let o of else_num) {
+                //     let tr = document.createElement("tr");
+                //     tr.innerHTML = `<td>${o}</td>`;
+                //     tableBody2.appendChild(tr);
+                // }
+
+                // tableBody1.innerHTML = tableRow_primes;
+                // tableBody2.innerHTML = tableRow_else;
+            } else {
+                displayBox1.style.display = 'none';
+                // displayBox2.style.display = 'none';
+                alert('請先輸入內容');
+            }
+        }
+
+        function handleClear() {
+            const input = document.getElementById('textInput');
+            const displayBox1 = document.querySelector('.display-boxes .display-box:nth-child(1)');
+            // const displayBox2 = document.querySelector('.display-boxes .display-box:nth-child(2)');
+
+            input.value = '';
+            displayBox1.style.display = 'none';
+            // displayBox2.style.display = 'none';
+        }
+
+        // 初始化時隱藏顯示框
+        window.addEventListener('DOMContentLoaded', function () {
+            const displayBox1 = document.querySelector('.display-boxes .display-box:nth-child(1)');
+            // const displayBox2 = document.querySelector('.display-boxes .display-box:nth-child(2)');
+            displayBox1.style.display = 'none';
+            // displayBox2.style.display = 'none';
+        });
+    </script>
+</body>
+
+</html>
