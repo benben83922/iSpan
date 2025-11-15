@@ -52,7 +52,6 @@ conn = pymysql.connect(
 )
 
 cursor = conn.cursor()
-api_key = "AIzaSyCsnUf04CU1pFcIVc_vzh1j56Ni6EPsALc"
 
 item = data[0]
 address = item[5]
